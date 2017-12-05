@@ -16,11 +16,11 @@ Template [HueStatus](https://github.com/APCOvernight/huestatus/) module
 
 The entry point for this module is index.js. It must export a class that extends the [BaseModule class from HueStatus](https://github.com/APCOvernight/huestatus/blob/master/src/Module.js).
 
-Your module class must have a start method, this is called when the module is loaded and HueStatus is ready to start updating.
+Your module class must have a `start` method. This is called when the module is loaded and HueStatus is ready to start updating.
 
-Your module class can optionally have a generateInstanceName method, that generates a unique instanceName for use in debugging. If this method is omitted a uuid will be generated instead.
+Your module class can optionally have a `generateInstanceName` method, that generates a unique instanceName for use in debugging. If this method is omitted a uuid will be generated instead.
 
-The BaseModule constructor adds the module config object to `this.config`. It also creates an event emitter at `this.emitter` but you shouldn't have to access this directly. You should use the change method (see below).
+The BaseModule constructor adds the module config object to `this.config`. It also creates an event emitter at `this.emitter` but you shouldn't have to access this directly. You should use the change method (see below).  Configuration is read from the `.heurc` file, typically located in your home directory.
 
 ### this.change(status, message) ⇒ <code>async function</code>
 The BaseModule change method is used to update the status (by emitting an event to the huestatus module).
@@ -37,13 +37,14 @@ The BaseModule change method is used to update the status (by emitting an event 
 if (someConditionIsMet) {
   await this.change('ok', 'everything is ok')
 }
+
 ```
 
 ## Testing
 
-The default codestyle in this repository is APC-style, run `npm run lint` to lint the all js files in your project.
+The default codestyle in this repository is [APC-style](https://github.com/APCOvernight/apc-style).  Run `npm run lint` to lint all js files in your project.
 
-Unit tests are included in test, run these with `npm run test`. Test coverage will be calculated by [nyc](https://github.com/istanbuljs/nyc).
+Unit tests based on [mocha](https://mochajs.org/) are included in the `test` folder. Run these with `npm run test` command. Test coverage is calculated using [nyc](https://github.com/istanbuljs/nyc).
 
 [Stryker](https://stryker-mutator.github.io/) mutation tests can be run with `npm run stryker`
 
@@ -55,12 +56,13 @@ Run `npm link` ([docs](https://docs.npmjs.com/cli/link)) from the project direct
 
 A .travis.yml file is included for simple [Continuous Integration in Travis](https://travis-ci.org). You will need to add your repo to travis to set up automated builds.
 
-The npm coverage script is set up to send coverage to [Coveralls](https://coveralls.io/) and [Code Climate](https://codeclimate.com/) upon build. You will need to create an account and add you repositories there for this to work.
+The npm coverage script is set up to send coverage to [Coveralls](https://coveralls.io/) and [Code Climate](https://codeclimate.com/) upon build. You will need to create an account and add your repositories there for this to work.
 
 ## Publishing
 
-Make sure to write your own README, and make sure all references in package.json are to your new module name. 
+Make sure to write your own `README.md`, and to replace all references in `package.json` to your new module name. 
 
 You should include a `.huerc-example` file with an example of all the possible module config variables.
 
 When you are ready, publish to NPM with `npm publish`.
+
