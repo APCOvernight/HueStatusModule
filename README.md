@@ -29,7 +29,7 @@ The BaseModule change method is used to update the status (by emitting an event 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| status | <code>String</code> | The status to send to the Hue Light - One of '*ok*', '*alert*', '*warning*', '*building*' |
+| status | <code>String</code> | The status to send to the Hue Light - One of '*ok*', '*alert*', '*warning*', '*working*' |
 | message | <code>String</code> | Message to send to the debug log. (Why is the status changing?) |
 
 **Example**
@@ -65,4 +65,3 @@ Make sure to write your own `README.md`, and to replace all references in `packa
 You should include a `.huerc-example` file with an example of all the possible module config variables.
 
 When you are ready, publish to NPM with `npm publish`.
-
