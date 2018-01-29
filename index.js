@@ -6,6 +6,10 @@ try {
   throw new Error('A HueStatus installation is required -- npm install -g huestatus')
 }
 
+/**
+ * HueStatus Module
+ * @extends BaseModule
+ */
 class HueTry extends BaseModule {
   /**
    * Generate instance name based on project and organisation
