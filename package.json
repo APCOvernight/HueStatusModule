@@ -10,7 +10,7 @@
     "stryker": "stryker run"
   },
   "dependencies": {
-    "requireg": "^0.1.7"
+    "requireg": "^0.2.0"
   },
   "devDependencies": {
     "apc-style": "1.1.0",
